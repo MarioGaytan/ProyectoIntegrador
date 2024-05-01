@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
 
 # Construye rutas dentro del proyecto de esta manera: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    "rest_framework_api_key",
     'corsheaders',
     'Red_Social_app',
     'rest_framework_api_key',
@@ -137,10 +139,8 @@ MEDIA_URL = '/images/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework.authentication.TokenAuthentication',
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework_api_key.permissions.HasAPIKey',
-    ]
+    # "DEFAULT_PERMISSION_CLASSES": [
+    #     "rest_framework_api_key.permissions.HasAPIKey",
+    # ]
 }
+MASTER_API_KEY = config('MASTER_API_KEY')
