@@ -47,7 +47,6 @@ INSTALLED_APPS = [
     "rest_framework_api_key",
     'corsheaders',
     'Red_Social_app',
-    'rest_framework_api_key',
 ]
 
 MIDDLEWARE = [
