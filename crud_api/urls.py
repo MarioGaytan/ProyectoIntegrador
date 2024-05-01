@@ -20,13 +20,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from Red_Social_app import views
 from rest_framework import routers
-
+from Red_Social_app.views import generate_api_key_view
 router = routers.DefaultRouter()
 router.register('muro',views.PostViewset)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('api/', include(router.urls))
+    path('mangofriends/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path('generate-api-key/', generate_api_key_view, name='generate_api_key')
 ]
 
 if settings.DEBUG:
