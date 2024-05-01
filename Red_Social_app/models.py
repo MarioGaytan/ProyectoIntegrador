@@ -25,4 +25,11 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.usuario} - {self.fecha_publicacion}'
 
+class APICredential(models.Model):
+    key = models.CharField(max_length=64, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.key
+
 # Create your models here.
