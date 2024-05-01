@@ -3,6 +3,7 @@ from .serializer import PostSerializer
 from .models import Post
 from rest_framework import viewsets
 
+
 # Create your views here.
 class PostViewset(viewsets.ModelViewSet):
     queryset = Post.objects.all()
