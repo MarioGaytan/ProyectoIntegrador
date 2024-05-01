@@ -27,16 +27,9 @@ class PostViewset(viewsets.ModelViewSet):
 def home(request):
     return render(request, "home.html")
 
-
-
 def generate_api_key_view(request):
-    # Verifica si se proporciona una llave API válida en el encabezado de la solicitud
     api_key = request.headers.get('API-Key')
-
-    # Verifica si la llave API proporcionada coincide con la llave API maestra
     if api_key != settings.MASTER_API_KEY:
         return JsonResponse({'error': 'Unauthorized'}, status=401)
-
-    # Si la llave API es válida, genera una nueva llave API
     api_key_instance, key = APIKey.objects.create_key(name="my-remote-service")
     return JsonResponse({'api_key': key})
