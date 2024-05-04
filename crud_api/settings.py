@@ -33,7 +33,10 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
 ]
 
-
+CORS_ALLOW_HEADERS = [
+    'API-Key',
+    'Authorization',
+]
 # Definición de aplicaciones
 
 INSTALLED_APPS = [
