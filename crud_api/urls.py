@@ -20,6 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from Red_Social_app import views
 from rest_framework import routers
+from Red_Social_app import templates
 
 router = routers.DefaultRouter()
 router.register('muro',views.PostViewset)
@@ -27,6 +28,7 @@ router.register('muro',views.PostViewset)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('home/',include(router.urls))
 ]
 
 if settings.DEBUG:
