@@ -145,4 +145,4 @@ REST_FRAMEWORK = {
     #     "rest_framework_api_key.permissions.HasAPIKey",
     # ]
 }
-MASTER_API_KEY = config('MASTER_API_KEY')
+MASTER_API_KEY = 'mango'
