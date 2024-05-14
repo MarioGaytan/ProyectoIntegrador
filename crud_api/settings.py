@@ -34,8 +34,9 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 CORS_ALLOW_HEADERS = [
-    'API-Key',
-    'Authorization',
+    'authorization',
+    'content-type',
+    'api-key',
 ]
 # Definición de aplicaciones
 

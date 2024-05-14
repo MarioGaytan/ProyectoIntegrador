@@ -1,10 +1,11 @@
-import secrets
-from .models import APICredential
+from django.urls import path, include
+from rest_framework.routers import DefaultRouter
+from .views import PostViewset, generate_api_key_view
 
-def generate_api_key():
-    return secrets.token_urlsafe(32)
+router = DefaultRouter()
+router.register(r'muro', PostViewset, basename='muro')
 
-def create_api_key():
-    key = generate_api_key()
-    api_credential = APICredential.objects.create(key=key)
-    return api_credential
+urlpatterns = [
+    path('generate-api-key/', generate_api_key_view, name='generate_api_key'),
+    path('api/', include(router.urls)),
+]
